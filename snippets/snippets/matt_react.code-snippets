@@ -18,7 +18,7 @@
 		"description": "Component with proptypes"
 	},
 	"Enzyme_Mount_Test": {
-		"prefix": "ztst",
+		"prefix": "etst",
 		"body": [
 			"/*eslint-disable*/",
 			"import React from 'react';",
