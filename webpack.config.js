@@ -24,7 +24,7 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ExtractTextPlugin.extract({
                     use: [
-                        'css-loader',
+                        'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
                         'sass-loader',
                     ],
                 }),
