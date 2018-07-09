@@ -5,9 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
-    mode: 'development',
     output: {
-        filename: 'index.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, './build/'),
     },
     module: {
@@ -42,5 +41,16 @@ module.exports = {
         contentBase: path.join(__dirname, 'build'),
         compress: true,
         port: 9000,
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'commons',
+                    chunks: 'all',
+                },
+            },
+        },
     },
 };
