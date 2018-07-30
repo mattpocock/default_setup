@@ -6,7 +6,7 @@
     "watch": "webpack --watch --config webpack.dev.js",
     "test": "jest --watchAll",
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --config webpack.dev.js",
     "dev": "concurrently \"npm run start\" \"npm run test\""
   },
   "devDependencies": {
