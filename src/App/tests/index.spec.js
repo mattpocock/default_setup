@@ -7,5 +7,5 @@ import App from '../index';
 test('Should render a Hello World', () => {
     const wrapper = mount(<App />);
 
-    expect(wrapper.find('div')).to.have.length(1);
+    expect(wrapper.find('h1')).to.have.length(1);
 });
