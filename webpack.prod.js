@@ -7,27 +7,27 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const cssnano = require('cssnano');
 
 module.exports = merge(common, {
-    mode: 'production',
-    plugins: [
-        new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: cssnano,
-            cssProcessorOptions: { discardComments: { removeAll: true } },
-            canPrint: true,
-        }),
+  mode: 'production',
+  plugins: [
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.css$/g,
+      cssProcessor: cssnano,
+      cssProcessorOptions: { discardComments: { removeAll: true } },
+      canPrint: true,
+    }),
+  ],
+  optimization: {
+    minimizer: [
+      new UglifyJSPlugin({
+        uglifyOptions: {
+          compress: {
+            drop_console: true,
+            drop_debugger: true,
+            toplevel: true,
+          },
+          parallel: true,
+        },
+      }),
     ],
-    optimization: {
-        minimizer: [
-            new UglifyJSPlugin({
-                uglifyOptions: {
-                    compress: {
-                        drop_console: true,
-                        drop_debugger: true,
-                        toplevel: true,
-                    },
-                    parallel: true,
-                },
-            }),
-        ],
-    },
+  },
 });
